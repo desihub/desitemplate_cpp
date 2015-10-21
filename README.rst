@@ -1,11 +1,11 @@
-============
-desitemplate
-============
+================
+desitemplate_cpp
+================
 
 Introduction
 ============
 
-This repository is intended to be a template for other repositories.
+This repository is intended to be a template for other ** C/C++ ** repositories.
 
 Product Name
 ============
@@ -51,10 +51,9 @@ bin/
 doc/
     Contains high-level documentation of the software.  Typically, the code
     itself will contain its own documentation.  This area is for
-    documentation that discusses the product as a whole.  Both Sphinx_ (for
-    Python) and Doxygen_ can and will process files placed in this directory.
-    Sphinx_ documents should be .rst files, while Doxygen_ documents should
-    be .dox files.
+    documentation that discusses the product as a whole.  Doxygen_ can and
+    will process files placed in this directory.
+    Doxygen_ documents should be .dox files.
 etc/
     Contains small data and configuration files used by the code.  This does not
     mean you should be checking in large data files!  This directory also
@@ -69,24 +68,19 @@ lib/
 pro/
     If this directory is present, support for IDL code will be added to the
     Module file.
-py/
-    Contains Python code.  Top-level Python package directories should be
-    placed *within* the ``py/`` directory.  This simplifies the specification
-    of the ``$PYTHONPATH`` variable.
 src/
     Contains C/C++ code.
 
 You should only create the directories you actually need.  For example,
-if you are writing a pure Python product, you don't need the src directory.
+if you are writing a pure C++ library, you don't need the bin directory.
 
-.. _Sphinx: http://sphinx-doc.org
 .. _Doxygen: http://www.stack.nl/~dimitri/doxygen/
 
 Top-level Files
 ---------------
 
-README Files
-~~~~~~~~~~~~
+README.rst Files
+~~~~~~~~~~~~~~~~
 
 Of course your product should have a README(.rst) file!  The preferred name and
 format is ``README.rst``.  If your product lives on GitHub, it will automatically
@@ -98,18 +92,6 @@ If your product is in svn, be sure that the svn:mime-type property is set::
 
 This will allow Trac to render your README.rst file in HTML.  In fact, you should
 set this mime-type for any and all .rst files that you have (in svn).
-
-setup.py
-~~~~~~~~
-
-If your product is primarily Python, it should have a setup.py file.  See
-the setup.py file included with this template product for further details.
-desiInstall will process this file with::
-
-    python setup.py install --prefix=$INSTALL_DIR.
-
-**If your product contains a setup.py file, desiInstall will assume that your
-product is Python-based and will process it accordingly.**
 
 Makefile
 ~~~~~~~~
@@ -129,16 +111,13 @@ The Makefile should be prepared to handle the installation of
 files and directories in ``INSTALL_DIR``.  That is, desiInstall won't try
 to second-guess what files and directories you want to install.
 
-**If your product contains a setup.py file in addition to a Makefile,
-desiInstall will process the setup.py file first, then process the Makefile.**
-
 Other Files
 -----------
 
 .module file
 ~~~~~~~~~~~~
 
-In the etc/ directory is a file called ``desitemplate.module``.  This file is used to
+In the etc/ directory is a file called ``desitemplate_cpp.module``.  This file is used to
 create a module file for the product at install time.  It should be renamed
 to the name of the product plus ``.module``.  It should be customized for
 the needs of the product.  In particular, any packages that your product
@@ -153,24 +132,8 @@ will handle that compiling.  It should be set up (or created in a configure
 stage) accordingly.  Libraries (shared or static) should be written to the
 ``lib/`` directory, and executables should be written to the ``bin/`` directory.
 
-
-Travis Build Status
-===================
-
-.. image:: https://img.shields.io/travis/desihub/desitemplate.svg
-    :target: https://travis-ci.org/desihub/desitemplate
-    :alt: Travis Build Status
-
-
-Test Coverage Status
-====================
-
-.. image:: https://coveralls.io/repos/desihub/desitemplate/badge.svg?branch=pre-1.0&service=github
-    :target: https://coveralls.io/github/desihub/desitemplate?branch=pre-1.0
-    :alt: Test Coverage Status
-
 License
 =======
 
-desitemplate is free software licensed under a 3-clause BSD-style license. For details see
+desitemplate_cpp is free software licensed under a 3-clause BSD-style license. For details see
 the ``LICENSE.rst`` file.

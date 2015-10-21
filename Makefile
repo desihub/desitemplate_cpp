@@ -36,7 +36,7 @@ INSTALLDIRS = pro src
 # This will compile Doxygen docs.
 #
 doc :
-	@ if test -f doc/Doxygen.Makefile; then $(MAKE) -C doc -f Doxygen.Makefile all; fi
+	@ if test -f doc/Makefile; then $(MAKE) -C doc all; fi
 #
 # This should compile all code prior to it being installed.
 #
