@@ -8,3 +8,12 @@
 ///
 /// This file shows how to create a standalone .dox file.
 ///
+/// \section change-log Change Log
+///
+/// \subsection v002 0.0.2 (unreleased)
+///
+///  - No changes yet.
+///
+/// \subsection v001 0.0.1 (2015-10-21)
+///
+///  - Initial tag.
