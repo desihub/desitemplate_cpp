@@ -22,7 +22,7 @@
 ///
 int main(int argc, char **argv)
 {
-    std::string headurl("$HeadURL$");
+    std::string headurl("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/tags/0.0.1/src/main.cpp $");
     std::cout << desiUtil::version(headurl) << std::endl;
     return 0;
 }

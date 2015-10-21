@@ -21,7 +21,7 @@ MAKEFLAGS = w
 # in these subdirectories should also understand 'make all' & 'make clean'.
 # This list can be empty, but should still be defined.
 #
-SUBDIRS = src
+SUBDIRS = src doc
 #
 # This is a list of directories that make should copy to $INSTALL_DIR.
 # If a Makefile is present in these directories, 'make install' will be
@@ -33,15 +33,15 @@ INSTALLDIRS = pro src
 #
 .PHONY : doc all install clean
 #
+# This should compile all code prior to it being installed.
+#
+all :
+	@ for f in $(SUBDIRS); do if test -f $$f/Makefile; then $(MAKE) -C $$f all; fi; done
+#
 # This will compile Doxygen docs.
 #
 doc :
 	@ if test -f doc/Makefile; then $(MAKE) -C doc all; fi
-#
-# This should compile all code prior to it being installed.
-#
-all : doc
-	@ for f in $(SUBDIRS); do if test -f $$f/Makefile; then $(MAKE) -C $$f all; fi; done
 #
 # This should handle the installation of files in $INSTALL_DIR.  Note that
 # 'all' is a dependency of 'install'.

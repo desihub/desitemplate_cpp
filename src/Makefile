@@ -2,8 +2,8 @@
 # Directories where binary code will live.  Be sure any environment
 # variables are properly exported.
 #
-BIN = $(TEMPLATE_DIR)/bin
-LIB = $(TEMPLATE_DIR)/lib
+BIN = $(DESITEMPLATE_CPP)/bin
+LIB = $(DESITEMPLATE_CPP)/lib
 #
 # Pass these flags to the C compiler
 #
@@ -48,11 +48,13 @@ all : $(BIN)/template_version
 # This creates the executable.
 #
 $(BIN)/template_version: $(LIB)/libtemplate.$(SO) main.o
+	@ if test ! -d $(BIN); then /bin/mkdir -p $(BIN); fi
 	$(LINK.cc) main.o $(LOADLIBES) $(LDLIBS) -o $@
 #
 # This creates the library.
 #
 $(LIB)/libtemplate.$(SO): $(OBJECTS)
+	@ if test ! -d  $(LIB); then /bin/mkdir -p $(LIB); fi
 	$(LINK.cc) $(SOFLAGS) $^ $(LOADLIBES) -o $@
 #
 # Copy built executables and libraries to their final locations.
@@ -68,3 +70,4 @@ install : all
 #
 clean :
 	- $(RM) $(LIB)/libtemplate.$(SO) $(BIN)/template_version *~ core *.o a.out
+	- /bin/rmdir $(BIN) $(LIB)

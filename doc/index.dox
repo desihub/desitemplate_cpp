@@ -1,8 +1,8 @@
-/// \mainpage desitemplate_cpp - The DESI C++ Template
-/// \author Benjamin Weaver <benjamin.weaver@nyu.edu>
-/// \version 0.1.2
+/// \mainpage desitemplate_cpp - Template for DESI C/C++ products.
+/// \author DESI Collaboration <desi-data@desi.lbl.gov>
+/// \version 0.0.1
 ///
-/// \copyright (C) 2014 MS-DESI
+/// \copyright (C) 2015 DESI <desi-data@desi.lbl.gov>
 ///
 /// \section sec-intro Introduction
 ///

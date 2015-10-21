@@ -1,6 +1,7 @@
 # Compiled files
 *.o
-bin/template_version
+bin/*
+lib/*
 
 # Other generated files
 htmlcov
