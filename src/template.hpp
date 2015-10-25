@@ -16,6 +16,7 @@
 #include <cctype> // for ::toupper()
 #include <cstdio> // for ::popen(), etc.
 #include <cstdlib> // for ::getenv()
+#include "version.hpp"
 ///
 /// \brief Define the desiUtil namespace.
 ///
