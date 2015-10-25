@@ -5,7 +5,7 @@ desitemplate_cpp
 Introduction
 ============
 
-This repository is intended to be a template for other ** C/C++ ** repositories.
+This repository is intended to be a template for other C/C++ repositories.
 
 Product Name
 ============

@@ -66,9 +66,5 @@ clean :
 # Enable 'make version' to update the version string.
 # Do make TAG=0.1.2 version to set the tag explicity.
 #
-LASTTAG = $(shell git describe --tags --dirty --always | cut -d- -f1)
-COUNT = $(shell git rev-list --count HEAD)
 version :
-	- $(RM) src/version.hpp
-	@ if test -n "$(TAG)"; then v=$(TAG); else v=$(LASTTAG).dev$(COUNT); fi; \
-		echo "#define VERSION_STRING \"$$v\"" > src/version.hpp
+	$(MAKE) -C src version
