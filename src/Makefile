@@ -2,8 +2,8 @@
 # Directories where binary code will live.  Be sure any environment
 # variables are properly exported.
 #
-BIN = $(DESITEMPLATE_CPP)/bin
-LIB = $(DESITEMPLATE_CPP)/lib
+BIN = $(WORKING_DIR)/bin
+LIB = $(WORKING_DIR)/lib
 #
 # Pass these flags to the C compiler
 #
@@ -62,9 +62,9 @@ $(LIB)/libtemplate.$(SO): $(OBJECTS)
 #
 install : all
 	/bin/mkdir -p $(INSTALL_DIR)/bin
-	/bin/cp -vf $(WORKING_DIR)/bin/template_version $(INSTALL_DIR)/bin
+	/bin/cp -vf $(BIN)/template_version $(INSTALL_DIR)/bin
 	/bin/mkdir -p $(INSTALL_DIR)/lib
-	/bin/cp -vf $(WORKING_DIR)/lib/libtemplate.$(SO) $(INSTALL_DIR)/lib
+	/bin/cp -vf $(LIB)/libtemplate.$(SO) $(INSTALL_DIR)/lib
 #
 # GNU make pre-defines $(RM).  The - in front of $(RM) causes make to
 # ignore any errors produced by $(RM).
