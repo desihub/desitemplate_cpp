@@ -1,12 +1,12 @@
 /// \file get_svn_devstr.cpp
 ///
-/// \brief Defines desiUtil::get_svn_devstr().
+/// \brief Defines desitemplate::get_svn_devstr().
 ///
 #include "template.hpp"
 //
 //
 //
-std::string desiUtil::get_svn_devstr(const std::string& product)
+std::string desitemplate::get_svn_devstr(const std::string& product)
 {
     std::string cbuff("");
     std::string unversioned("0");

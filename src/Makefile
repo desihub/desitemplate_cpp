@@ -11,7 +11,8 @@ CPPFLAGS  = -Wall -O -fPIC
 #
 # Objects to compile
 #
-OBJECTS = most_recent_svn_tag.o get_svn_devstr.o svn_version.o compare_version.o parse_version.o
+OBJECTS = most_recent_svn_tag.o get_svn_devstr.o svn_version.o \
+	compare_version.o parse_version.o version.o
 #
 # By default, make uses this rule to compile individual objects. Override
 # if necessary

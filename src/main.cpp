@@ -9,7 +9,7 @@
 ///
 /// \brief Main program.
 ///
-/// This function only exists to call desiUtil::version() and print its return value.
+/// This function only exists to call desitemplate::version() and print its return value.
 ///
 /// Note that the documentation for this function is here, rather than in
 /// template.hpp, because main is not part of the namespace.  Nor is the
@@ -23,6 +23,7 @@
 int main(int argc, char **argv)
 {
     std::string headurl("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/tags/0.0.1/src/main.cpp $");
-    std::cout << desiUtil::version(headurl) << std::endl;
+    std::cout << "Test SVN version: " << desitemplate::svn_version(headurl) << std::endl;
+    std::cout << "Test GIT version: " << desitemplate::version() << std::endl;
     return 0;
 }

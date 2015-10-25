@@ -18,7 +18,7 @@
 #include <cstdlib> // for ::getenv()
 #include "version.hpp"
 ///
-/// \brief Define the desiUtil namespace.
+/// \brief Define the desitemplate namespace.
 ///
 namespace desitemplate {
     ///
@@ -76,5 +76,5 @@ namespace desitemplate {
     /// \return The version name.
     ///
     std::string version(void);
-} // end namespace desiUtil
+} // end namespace desitemplate
 #endif // end ifndef _HAVE_TEMPLATE_HPP_

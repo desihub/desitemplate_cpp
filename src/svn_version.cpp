@@ -1,12 +1,12 @@
-/// \file version.cpp
+/// \file svn_version.cpp
 ///
-/// \brief Defines desiUtil::version().
+/// \brief Defines desitemplate::svn_version().
 ///
 #include "template.hpp"
 //
 //
 //
-std::string desiUtil::version(const std::string& headurl)
+std::string desitemplate::svn_version(const std::string& headurl)
 {
     std::string defaultVersion("0.0.1.dev");
     std::string url = headurl.substr(10,headurl.length()-12); // Strip $HeadURL stuff.
@@ -21,7 +21,7 @@ std::string desiUtil::version(const std::string& headurl)
             std::size_t slash = baseurl.find_last_of("/")+1;
             std::string product = url.substr(slash,baseurl.length()-slash);
             std::string tagurl = baseurl + "/tags";
-            return desiUtil::most_recent_tag(tagurl)+".dev"+desiUtil::get_svn_devstr(product);
+            return desitemplate::most_recent_svn_tag(tagurl)+".dev"+desitemplate::get_svn_devstr(product);
         } else {
             found = url.find("trunk");
             if (found != std::string::npos) {
@@ -29,7 +29,7 @@ std::string desiUtil::version(const std::string& headurl)
                 std::size_t slash = baseurl.find_last_of("/")+1;
                 std::string product = url.substr(slash,baseurl.length()-slash);
                 std::string tagurl = baseurl + "/tags";
-                return desiUtil::most_recent_tag(tagurl)+".dev"+desiUtil::get_svn_devstr(product);
+                return desitemplate::most_recent_svn_tag(tagurl)+".dev"+desitemplate::get_svn_devstr(product);
             } else {
                 return defaultVersion;
             }
