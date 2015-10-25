@@ -20,7 +20,7 @@
 ///
 /// \brief Define the desiUtil namespace.
 ///
-namespace desiUtil {
+namespace desitemplate {
     ///
     /// \brief Parse a string into version numbers.
     ///
@@ -46,7 +46,7 @@ namespace desiUtil {
     ///
     /// \warning This function will try to communicate with the svn repository.
     ///
-    std::string most_recent_tag(const std::string& tags);
+    std::string most_recent_svn_tag(const std::string& tags);
     ///
     /// \brief Get the svn revision number.
     ///
@@ -59,7 +59,7 @@ namespace desiUtil {
     ///
     std::string get_svn_devstr(const std::string& product);
     ///
-    /// \brief Version of the product.
+    /// \brief Version of the product from svn.
     ///
     /// This function reads the value of HeadURL to determine the version.
     ///
@@ -67,6 +67,14 @@ namespace desiUtil {
     ///
     /// \return The version name.
     ///
-    std::string version(const std::string& headurl);
+    std::string svn_version(const std::string& headurl);
+    ///
+    /// \brief Version of the product.
+    ///
+    /// This function returns the version string for the product.
+    ///
+    /// \return The version name.
+    ///
+    std::string version(void);
 } // end namespace desiUtil
 #endif // end ifndef _HAVE_TEMPLATE_HPP_
