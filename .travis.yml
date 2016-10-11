@@ -1,8 +1,9 @@
 language: cpp
-compiler:
-    - gcc
+compiler: gcc
 env:
-    - WORKING_DIR=${TRAVIS_BUILD_DIR}
+    global:
+        - WORKING_DIR=${TRAVIS_BUILD_DIR}
+        - LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/lib
 before_install:
     - pip install --user cpp-coveralls
 script:
