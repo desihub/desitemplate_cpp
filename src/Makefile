@@ -40,7 +40,7 @@ endif
 #
 # This is a message to make that these targets are 'actions' not files.
 #
-.PHONY : all clean install
+.PHONY : all clean install version
 #
 # Makefiles should always define this target.
 #
