@@ -22,6 +22,15 @@
 ///
 int main(int argc, char **argv)
 {
+    std::string version1("1.2.3.4");
+    int parse_version_result[4];
+    desitemplate::parse_version(parse_version_result, version1);
+    for (int i = 0; i < 4; i++) {
+        if (parse_version_result[i] != i+1) {
+            std::cerr << "ERROR: parsed_version[" << i << "] != " << i+1 << std::endl;
+            return 1;
+        }
+    }
     std::string tagURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/tags/0.0.2/src/main.cpp $");
     std::string branchURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/branches/test-coverage/src/main.cpp $");
     std::string trunkURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/trunk/src/main.cpp $");
