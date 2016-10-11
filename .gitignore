@@ -11,7 +11,8 @@ htmlcov
 doc/html
 doc/latex
 
-# Packages/installer info
+# Testing and coverage-related files
+*.gcno
 
 # Other
 .*.swp

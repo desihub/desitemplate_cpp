@@ -10,7 +10,11 @@
 ///
 /// \section change-log Change Log
 ///
-/// \subsection v002 0.0.2 (2016-1011)
+/// \subsection v003 0.0.3 (unreleased)
+///
+///  - Add test infrastructure.
+///
+/// \subsection v002 0.0.2 (2016-10-11)
 ///
 ///  - Allow make version to set the version string.
 ///  - Rename some functions to highlight svn functionality.

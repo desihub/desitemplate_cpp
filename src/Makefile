@@ -7,7 +7,7 @@ LIB = $(WORKING_DIR)/lib
 #
 # Pass these flags to the C compiler
 #
-CPPFLAGS  = -Wall -O -fPIC
+CPPFLAGS  = -Wall -fPIC -fprofile-arcs -ftest-coverage
 #
 # Objects to compile
 #
@@ -70,7 +70,7 @@ install : all
 # ignore any errors produced by $(RM).
 #
 clean :
-	- $(RM) $(LIB)/libtemplate.$(SO) $(BIN)/template_version *~ core *.o a.out
+	- $(RM) $(LIB)/libtemplate.$(SO) $(BIN)/template_version *.o *.gcno *~ core
 	- /bin/rmdir $(BIN) $(LIB)
 #
 # Enable 'make version' to update the version string.
