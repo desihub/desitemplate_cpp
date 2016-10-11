@@ -30,6 +30,32 @@ case it should still contain a stripped-down top-level Makefile that
 contains enough functionality to install the product, but otherwise
 does nothing.
 
+Versioning a Product
+====================
+
+DESI products should be able to report their versions through a standard
+method.  For Python packages, the standard is to set the ``__version__``
+variable in the top-level module, *e.g.* ``desiutil.__version__``.
+For DESI products that are based on desiutil_, the ``__version__`` string
+can be manipulated with ``python setup.py version``.
+
+.. _desiutil: http://desiutil.readthedocs.io
+
+This package demonstrates an equivalent technique for setting a version string.
+
+* ``make version`` will update src/version.hpp, which is a one-line file
+  that can be included in other header files.  It will contain something like::
+
+      #define VERSION_STRING "0.0.1.dev8"
+
+* ``make TAG=1.0.0 version`` will set the src/version.hpp file to a
+  specific tag name.
+* This package defines a function, ``desitemplate::version()`` that
+  returns this version string.
+
+You can copy this technique, or provide your own method for setting and
+getting the version.
+
 Product Contents
 ================
 
