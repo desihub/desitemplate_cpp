@@ -13,6 +13,7 @@ doc/latex
 
 # Testing and coverage-related files
 *.gcno
+*.gcda
 
 # Other
 .*.swp

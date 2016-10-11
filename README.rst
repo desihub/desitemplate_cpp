@@ -2,6 +2,14 @@
 desitemplate_cpp
 ================
 
+.. image:: https://travis-ci.org/desihub/desitemplate_cpp.png?branch=cpp-test-coverage
+    :target: https://travis-ci.org/desihub/desitemplate_cpp
+    :alt: Test Status
+
+.. image:: https://coveralls.io/repos/github/desihub/desitemplate_cpp/badge.svg?branch=cpp-test-coverage
+    :target: https://coveralls.io/github/desihub/desitemplate_cpp?branch=cpp-test-coverage
+    :alt: Coverage Status
+
 Introduction
 ============
 
