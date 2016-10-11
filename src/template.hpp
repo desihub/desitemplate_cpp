@@ -16,6 +16,7 @@
 #include <cctype> // for ::toupper()
 #include <cstdio> // for ::popen(), etc.
 #include <cstdlib> // for ::getenv()
+#include <cassert> // for ::assert()
 #include "version.hpp"
 ///
 /// \brief Define the desitemplate namespace.
