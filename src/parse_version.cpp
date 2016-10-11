@@ -1,12 +1,12 @@
 /// \file parse_version.cpp
 ///
-/// \brief Defines desiUtil::parse_version().
+/// \brief Defines desitemplate::parse_version().
 ///
 #include "template.hpp"
 //
 //
 //
-void desiUtil::parse_version(int result[4], const std::string& input)
+void desitemplate::parse_version(int result[4], const std::string& input)
 {
     std::istringstream parser(input);
     parser >> result[0];

@@ -2,8 +2,8 @@
 # Directories where binary code will live.  Be sure any environment
 # variables are properly exported.
 #
-BIN = $(DESITEMPLATE_CPP)/bin
-LIB = $(DESITEMPLATE_CPP)/lib
+BIN = $(WORKING_DIR)/bin
+LIB = $(WORKING_DIR)/lib
 #
 # Pass these flags to the C compiler
 #
@@ -11,7 +11,8 @@ CPPFLAGS  = -Wall -O -fPIC
 #
 # Objects to compile
 #
-OBJECTS = most_recent_tag.o get_svn_devstr.o version.o compare_version.o parse_version.o
+OBJECTS = most_recent_svn_tag.o get_svn_devstr.o svn_version.o \
+	compare_version.o parse_version.o version.o
 #
 # By default, make uses this rule to compile individual objects. Override
 # if necessary
@@ -39,7 +40,7 @@ endif
 #
 # This is a message to make that these targets are 'actions' not files.
 #
-.PHONY : all clean install
+.PHONY : all clean install version
 #
 # Makefiles should always define this target.
 #
@@ -61,9 +62,9 @@ $(LIB)/libtemplate.$(SO): $(OBJECTS)
 #
 install : all
 	/bin/mkdir -p $(INSTALL_DIR)/bin
-	/bin/cp -vf $(WORKING_DIR)/bin/template_version $(INSTALL_DIR)/bin
+	/bin/cp -vf $(BIN)/template_version $(INSTALL_DIR)/bin
 	/bin/mkdir -p $(INSTALL_DIR)/lib
-	/bin/cp -vf $(WORKING_DIR)/lib/libtemplate.$(SO) $(INSTALL_DIR)/lib
+	/bin/cp -vf $(LIB)/libtemplate.$(SO) $(INSTALL_DIR)/lib
 #
 # GNU make pre-defines $(RM).  The - in front of $(RM) causes make to
 # ignore any errors produced by $(RM).
@@ -71,3 +72,13 @@ install : all
 clean :
 	- $(RM) $(LIB)/libtemplate.$(SO) $(BIN)/template_version *~ core *.o a.out
 	- /bin/rmdir $(BIN) $(LIB)
+#
+# Enable 'make version' to update the version string.
+# Do make TAG=0.1.2 version to set the tag explicity.
+#
+LASTTAG = $(shell git describe --tags --dirty --always | cut -d- -f1)
+COUNT = $(shell git rev-list --count HEAD)
+version :
+	- $(RM) version.hpp
+	@ if test -n "$(TAG)"; then v=$(TAG); else v=$(LASTTAG).dev$(COUNT); fi; \
+		echo "#define VERSION_STRING \"$$v\"" > version.hpp

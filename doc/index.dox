@@ -12,7 +12,8 @@
 ///
 /// \subsection v002 0.0.2 (unreleased)
 ///
-///  - No changes yet.
+///  - Allow make version to set the version string.
+///  - Rename some functions to highlight svn functionality.
 ///
 /// \subsection v001 0.0.1 (2015-10-21)
 ///

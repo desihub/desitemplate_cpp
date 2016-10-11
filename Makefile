@@ -31,7 +31,7 @@ INSTALLDIRS = pro src
 #
 # This is a message to make that these targets are 'actions' not files.
 #
-.PHONY : doc all install clean
+.PHONY : doc all install clean version
 #
 # This should compile all code prior to it being installed.
 #
@@ -62,3 +62,9 @@ install : all
 clean :
 	- $(RM) *~ core
 	@ for f in $(SUBDIRS); do $(MAKE) -C $$f clean ; done
+#
+# Enable 'make version' to update the version string.
+# Do make TAG=0.1.2 version to set the tag explicity.
+#
+version :
+	$(MAKE) -C src version

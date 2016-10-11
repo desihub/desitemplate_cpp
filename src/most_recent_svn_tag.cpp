@@ -1,12 +1,12 @@
-/// \file most_recent_tag.cpp
+/// \file most_recent_svn_tag.cpp
 ///
-/// \brief Defines desiUtil::most_recent_tag().
+/// \brief Defines desitemplate::most_recent_svn_tag().
 ///
 #include "template.hpp"
 //
 //
 //
-std::string desiUtil::most_recent_tag(const std::string& tags)
+std::string desitemplate::most_recent_svn_tag(const std::string& tags)
 {
     std::list<std::string> taglist;
     std::string notag("0.0.1");
@@ -21,7 +21,7 @@ std::string desiUtil::most_recent_tag(const std::string& tags)
     }
     pclose(in);
     if (taglist.size() > 0 && taglist.front().length() > 0) {
-        taglist.sort(desiUtil::compare_version);
+        taglist.sort(desitemplate::compare_version);
         return taglist.back();
     } else {
         return notag;
