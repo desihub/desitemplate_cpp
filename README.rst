@@ -64,6 +64,18 @@ This package demonstrates an equivalent technique for setting a version string.
 You can copy this technique, or provide your own method for setting and
 getting the version.
 
+Testing a Product
+=================
+
+This package demonstrates how to integrate a C/C++ package with Travis_ and
+Coveralls_.  The ``main.cpp`` file compiles to an executable that runs
+simple unit tests, using the standard C-library ``assert()`` function.
+Test coverage analysis requires ``gcov``, which is usually included by
+default in the ``gcc`` compiler collection.
+
+.. _Travis: https://travis-ci.org
+.. _Coveralls: https://coveralls.io
+
 Product Contents
 ================
 
