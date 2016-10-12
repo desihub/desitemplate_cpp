@@ -41,8 +41,7 @@ int main(int argc, char **argv)
     if (travis_build_dir != NULL) {
         std::string travis(travis_build_dir);
         std::string svnTags = "file://" + travis + "/svn/tags";
-        std::string svnURL("file:///svn/tags");
-        std::cout << desitemplate::most_recent_svn_tag(svnURL) << std::endl;
+        std::cout << desitemplate::most_recent_svn_tag(svnTags) << std::endl;
     }
     //
     // Test svn_version()
