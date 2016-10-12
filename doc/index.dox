@@ -2,7 +2,7 @@
 /// \author DESI Collaboration <desi-data@desi.lbl.gov>
 /// \version 0.0.3
 ///
-/// \copyright (C) 2015 DESI <desi-data@desi.lbl.gov>
+/// \copyright (C) 2015-2016 DESI <desi-data@desi.lbl.gov>
 ///
 /// \section sec-intro Introduction
 ///
@@ -10,7 +10,7 @@
 ///
 /// \section change-log Change Log
 ///
-/// \subsection v003 0.0.3 (unreleased)
+/// \subsection v003 0.0.3 (2016-10-12)
 ///
 ///  - Add test infrastructure, including Travis-CI and Coverage tests.
 ///
