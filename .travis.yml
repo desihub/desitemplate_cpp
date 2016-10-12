@@ -10,10 +10,13 @@ env:
     global:
         - WORKING_DIR=${TRAVIS_BUILD_DIR}
         - LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/lib
+        - DESITEMPLATE_CPP_SVN_DIR=${TRAVIS_BUILD_DIR}/svn_checkout
 before_install:
     - pip install --user cpp-coveralls
     - svnadmin create ${TRAVIS_BUILD_DIR}/svn
     - svn mkdir file://${TRAVIS_BUILD_DIR}/svn/trunk file://${TRAVIS_BUILD_DIR}/svn/tags file://${TRAVIS_BUILD_DIR}/svn/branches -m 'initial structure'
     - svn mkdir file://${TRAVIS_BUILD_DIR}/svn/tags/1.0.0 file://${TRAVIS_BUILD_DIR}/svn/tags/1.1.0 -m 'dummy tags'
-script: make -C src all && ${TRAVIS_BUILD_DIR}/bin/test_desitemplate_cpp
+    - svn co file://${TRAVIS_BUILD_DIR}/svn svn_checkout
+# script: make -C src all && ${TRAVIS_BUILD_DIR}/bin/test_desitemplate_cpp
+script: make && ${TRAVIS_BUILD_DIR}/bin/test_desitemplate_cpp
 after_success: coveralls --exclude lib --exclude doc --exclude etc --gcov-options '\-lp'
