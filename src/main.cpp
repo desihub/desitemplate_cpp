@@ -62,9 +62,11 @@ int main(int argc, char **argv)
         // Test svn_version() with dummy repo.
         //
         std::string branchURL = "$HeadURL: file://" + travis + "/svn/branches/test-coverage/src/main.cpp $";
-        std::cout << "Test SVN branch version: " << desitemplate::svn_version(branchURL) << std::endl;
+        assert(desitemplate::svn_version(branchURL) == "1.1.0.dev2");
+        // std::cout << "Test SVN branch version: " << desitemplate::svn_version(branchURL) << std::endl;
         std::string trunkURL = "$HeadURL: file://" + travis + "/svn/trunk/src/main.cpp $";
-        // std::cout << "Test SVN trunk version: " << desitemplate::svn_version(trunkURL) << std::endl;
+        // assert(desitemplate::svn_version(branchURL) == "1.1.0.dev2");
+        std::cout << "Test SVN trunk version: " << desitemplate::svn_version(trunkURL) << std::endl;
     }
     //
     // Test svn_version()
