@@ -48,7 +48,7 @@ int main(int argc, char **argv)
         // Test an empty directory.
         //
         std::string svnBranches =  "file://" + travis + "/svn/branches";
-        assert(desitemplate::most_recent_svn_tag(svnTags) == "0.0.1");
+        assert(desitemplate::most_recent_svn_tag(svnBranches) == "0.0.1");
         // std::cout << desitemplate::most_recent_svn_tag(svnBranches) << std::endl;
     }
     //
@@ -57,12 +57,14 @@ int main(int argc, char **argv)
     std::string tagURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/tags/0.0.2/src/main.cpp $");
     std::string branchURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/branches/test-coverage/src/main.cpp $");
     std::string trunkURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/trunk/src/main.cpp $");
-    std::cout << "Test SVN tag version: " << desitemplate::svn_version(tagURL) << std::endl;
+    assert(desitemplate::svn_version(tagURL) == "0.0.2");
+    // std::cout << "Test SVN tag version: " << desitemplate::svn_version(tagURL) << std::endl;
     // std::cout << "Test SVN branch version: " << desitemplate::svn_version(branchURL) << std::endl;
     // std::cout << "Test SVN trunk version: " << desitemplate::svn_version(branchURL) << std::endl;
     //
     // Test version()
     //
-    std::cout << "Test GIT version: " << desitemplate::version() << std::endl;
+    assert(desitemplate::version() == VERSION_STRING);
+    // std::cout << "Test GIT version: " << desitemplate::version() << std::endl;
     return 0;
 }
