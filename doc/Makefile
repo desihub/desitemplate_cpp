@@ -3,7 +3,7 @@ all : html/index.html
 html/index.html : Doxyfile
 	doxygen
 
-instal :
+install :
 	@ if test -d html; then \
 		if ! test -d $(INSTALL_DIR)/doc/html; then \
 			/bin/mkdir -p $(INSTALL_DIR)/doc/html; fi; \
