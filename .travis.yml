@@ -11,6 +11,7 @@ env:
         - WORKING_DIR=${TRAVIS_BUILD_DIR}
         - LD_LIBRARY_PATH=${TRAVIS_BUILD_DIR}/lib
         - DESITEMPLATE_CPP_DIR=${TRAVIS_BUILD_DIR}/desitemplate_cpp
+        - SVN_DIR=${DESITEMPLATE_CPP_DIR}
 before_install:
     - pip install --user cpp-coveralls
     - svnadmin create ${TRAVIS_BUILD_DIR}/svn
