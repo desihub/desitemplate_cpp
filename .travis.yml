@@ -1,4 +1,10 @@
 language: cpp
+os: linux
+sudo: false
+addons:
+    apt:
+        packages:
+            - doxygen
 compiler: gcc
 env:
     global:

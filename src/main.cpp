@@ -34,6 +34,7 @@ int main(int argc, char **argv)
     // Test compare_version()
     //
     assert(desitemplate::compare_version(version1, version2));
+    assert(!desitemplate::compare_version(version2, version1));
     //
     // Test most_recent_svn_tag()
     //
@@ -41,7 +42,14 @@ int main(int argc, char **argv)
     if (travis_build_dir != NULL) {
         std::string travis(travis_build_dir);
         std::string svnTags = "file://" + travis + "/svn/tags";
-        std::cout << desitemplate::most_recent_svn_tag(svnTags) << std::endl;
+        assert(desitemplate::most_recent_svn_tag(svnTags) == "1.1.0");
+        // std::cout << desitemplate::most_recent_svn_tag(svnTags) << std::endl;
+        //
+        // Test an empty directory.
+        //
+        std::string svnBranches =  "file://" + travis + "/svn/branches";
+        assert(desitemplate::most_recent_svn_tag(svnTags) == "0.0.1");
+        // std::cout << desitemplate::most_recent_svn_tag(svnBranches) << std::endl;
     }
     //
     // Test svn_version()
