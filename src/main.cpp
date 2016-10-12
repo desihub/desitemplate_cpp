@@ -56,18 +56,23 @@ int main(int argc, char **argv)
         //
         // Test get_svn_devstr()
         //
-        std::cout << desitemplate::get_svn_devstr("desitemplate_cpp_svn") << std::endl;
+        assert(desitemplate::get_svn_devstr("desitemplate_cpp") == "2");
+        // std::cout << desitemplate::get_svn_devstr("desitemplate_cpp") << std::endl;
+        //
+        // Test svn_version() with dummy repo.
+        //
+        std::string branchURL = "$HeadURL: file://" + travis + "/desitemplate_cpp/branches/test-coverage/src/main.cpp $";
+        // std::string branchURL("$HeadURL: file://desi.lbl.gov/svn/code/tools/desitemplate_cpp/branches/test-coverage/src/main.cpp $");
+        // std::string trunkURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/trunk/src/main.cpp $");
+        std::cout << "Test SVN branch version: " << desitemplate::svn_version(branchURL) << std::endl;
+        // std::cout << "Test SVN trunk version: " << desitemplate::svn_version(branchURL) << std::endl;
     }
     //
     // Test svn_version()
     //
     std::string tagURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/tags/0.0.2/src/main.cpp $");
-    std::string branchURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/branches/test-coverage/src/main.cpp $");
-    std::string trunkURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/trunk/src/main.cpp $");
     assert(desitemplate::svn_version(tagURL) == "0.0.2");
     // std::cout << "Test SVN tag version: " << desitemplate::svn_version(tagURL) << std::endl;
-    // std::cout << "Test SVN branch version: " << desitemplate::svn_version(branchURL) << std::endl;
-    // std::cout << "Test SVN trunk version: " << desitemplate::svn_version(branchURL) << std::endl;
     //
     // Test version()
     //
