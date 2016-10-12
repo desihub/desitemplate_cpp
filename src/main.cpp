@@ -65,8 +65,8 @@ int main(int argc, char **argv)
         assert(desitemplate::svn_version(branchURL) == "1.1.0.dev2");
         // std::cout << "Test SVN branch version: " << desitemplate::svn_version(branchURL) << std::endl;
         std::string trunkURL = "$HeadURL: file://" + travis + "/svn/trunk/src/main.cpp $";
-        // assert(desitemplate::svn_version(branchURL) == "1.1.0.dev2");
-        std::cout << "Test SVN trunk version: " << desitemplate::svn_version(trunkURL) << std::endl;
+        assert(desitemplate::svn_version(trunkURL) == "1.1.0.dev2");
+        // std::cout << "Test SVN trunk version: " << desitemplate::svn_version(trunkURL) << std::endl;
     }
     //
     // Test svn_version()
@@ -74,6 +74,9 @@ int main(int argc, char **argv)
     std::string tagURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/tags/0.0.2/src/main.cpp $");
     assert(desitemplate::svn_version(tagURL) == "0.0.2");
     // std::cout << "Test SVN tag version: " << desitemplate::svn_version(tagURL) << std::endl;
+    std::string nonsenseURL("$HeadURL: https://desi.lbl.gov/svn/code/tools/desitemplate_cpp/nonsense.cpp $");
+    assert(desitemplate::svn_version(nonsenseURL) == "0.0.1.dev");
+    // std::cout << "Test bad SVN version: " << desitemplate::svn_version(nonsenseURL) << std::endl;
     //
     // Test version()
     //
