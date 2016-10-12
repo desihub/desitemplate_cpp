@@ -2,6 +2,14 @@
 desitemplate_cpp
 ================
 
+.. image:: https://travis-ci.org/desihub/desitemplate_cpp.png?branch=cpp-test-coverage
+    :target: https://travis-ci.org/desihub/desitemplate_cpp
+    :alt: Test Status
+
+.. image:: https://coveralls.io/repos/github/desihub/desitemplate_cpp/badge.svg?branch=cpp-test-coverage
+    :target: https://coveralls.io/github/desihub/desitemplate_cpp?branch=cpp-test-coverage
+    :alt: Coverage Status
+
 Introduction
 ============
 
@@ -55,6 +63,18 @@ This package demonstrates an equivalent technique for setting a version string.
 
 You can copy this technique, or provide your own method for setting and
 getting the version.
+
+Testing a Product
+=================
+
+This package demonstrates how to integrate a C/C++ package with Travis_ and
+Coveralls_.  The ``main.cpp`` file compiles to an executable that runs
+simple unit tests, using the standard C-library ``assert()`` function.
+Test coverage analysis requires ``gcov``, which is usually included by
+default in the ``gcc`` compiler collection.
+
+.. _Travis: https://travis-ci.org
+.. _Coveralls: https://coveralls.io
 
 Product Contents
 ================

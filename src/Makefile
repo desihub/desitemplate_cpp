@@ -7,7 +7,7 @@ LIB = $(WORKING_DIR)/lib
 #
 # Pass these flags to the C compiler
 #
-CPPFLAGS  = -Wall -O -fPIC
+CPPFLAGS  = -Wall -fPIC -fprofile-arcs -ftest-coverage
 #
 # Objects to compile
 #
@@ -44,11 +44,11 @@ endif
 #
 # Makefiles should always define this target.
 #
-all : $(BIN)/template_version
+all : $(BIN)/test_desitemplate_cpp
 #
 # This creates the executable.
 #
-$(BIN)/template_version: $(LIB)/libtemplate.$(SO) main.o
+$(BIN)/test_desitemplate_cpp: $(LIB)/libtemplate.$(SO) main.o
 	@ if test ! -d $(BIN); then /bin/mkdir -p $(BIN); fi
 	$(LINK.cc) main.o $(LOADLIBES) $(LDLIBS) -o $@
 #
@@ -62,7 +62,7 @@ $(LIB)/libtemplate.$(SO): $(OBJECTS)
 #
 install : all
 	/bin/mkdir -p $(INSTALL_DIR)/bin
-	/bin/cp -vf $(BIN)/template_version $(INSTALL_DIR)/bin
+	/bin/cp -vf $(BIN)/test_desitemplate_cpp $(INSTALL_DIR)/bin
 	/bin/mkdir -p $(INSTALL_DIR)/lib
 	/bin/cp -vf $(LIB)/libtemplate.$(SO) $(INSTALL_DIR)/lib
 #
@@ -70,7 +70,7 @@ install : all
 # ignore any errors produced by $(RM).
 #
 clean :
-	- $(RM) $(LIB)/libtemplate.$(SO) $(BIN)/template_version *~ core *.o a.out
+	- $(RM) $(LIB)/libtemplate.$(SO) $(BIN)/test_desitemplate_cpp *.o *.gcno *.gcda *~ core
 	- /bin/rmdir $(BIN) $(LIB)
 #
 # Enable 'make version' to update the version string.

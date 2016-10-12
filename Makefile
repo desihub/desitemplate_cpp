@@ -23,11 +23,14 @@ MAKEFLAGS = w
 #
 SUBDIRS = src doc
 #
-# This is a list of directories that make should copy to $INSTALL_DIR.
-# If a Makefile is present in these directories, 'make install' will be
-# called on them.  Otherwise it will just be a plain copy.
+# This section tests for the definition of WORKING_DIR and INSTAL_DIR.
 #
-INSTALLDIRS = pro src
+ifndef WORKING_DIR
+WORKING_DIR_CHECK = $(error WORKING_DIR is undefined!)
+endif
+ifndef INSTALL_DIR
+INSTALL_DIR_CHECK = $(error INSTALL_DIR is undefined!)
+endif
 #
 # This is a message to make that these targets are 'actions' not files.
 #
@@ -36,6 +39,7 @@ INSTALLDIRS = pro src
 # This should compile all code prior to it being installed.
 #
 all :
+	$(WORKING_DIR_CHECK)
 	@ for f in $(SUBDIRS); do if test -f $$f/Makefile; then $(MAKE) -C $$f all; fi; done
 #
 # This will compile Doxygen docs.
@@ -47,14 +51,8 @@ doc :
 # 'all' is a dependency of 'install'.
 #
 install : all
-	@ for f in $(INSTALLDIRS); do \
-		if test -f $$f/Makefile; then $(MAKE) -C $$f install; else \
-			if test -d $(WORKING_DIR)/$$f -a ! -d $(INSTALL_DIR)/$$f; then \
-				/bin/cp -Rvf $(WORKING_DIR)/$$f $(INSTALL_DIR); fi; fi; done
-	@ if test -f doc/html; then \
-		if ! test -f $(INSTALL_DIR)/doc/html; then \
-			/bin/mkdir -p $(INSTALL_DIR)/doc/html; fi; \
-		/bin/cp -Rvf $(WORKING_DIR)/doc/html $(INSTALL_DIR)/doc/html/doxygen; fi
+	$(INSTALL_DIR_CHECK)
+	@ for f in $(SUBDIRS); do if test -f $$f/Makefile; then $(MAKE) -C $$f install; fi; done
 #
 # GNU make pre-defines $(RM).  The - in front of $(RM) causes make to
 # ignore any errors produced by $(RM).
