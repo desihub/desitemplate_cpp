@@ -37,9 +37,10 @@ int main(int argc, char **argv)
     //
     // Test most_recent_svn_tag()
     //
-    std::string travis_build_dir = getenv("TRAVIS_BUILD_DIR");
-    std::string svnTags = "file://" + travis_build_dir + "/svn/tags"
+    char* travis_build_dir = getenv("TRAVIS_BUILD_DIR");
     if (travis_build_dir != NULL) {
+        std::string travis(travis_build_dir);
+        std::string svnTags = "file://" + travis + "/svn/tags";
         std::string svnURL("file:///svn/tags");
         std::cout << desitemplate::most_recent_svn_tag(svnURL) << std::endl;
     }
