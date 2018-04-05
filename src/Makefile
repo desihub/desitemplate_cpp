@@ -80,7 +80,7 @@ clean :
 #
 version :
 	$(eval LASTTAG := $$(shell git describe --tags --dirty --always | cut -d- -f1))
-	$(eval COUNT := $(shell git rev-list --count HEAD))
+	$(eval COUNT := $$(shell git rev-list --count HEAD))
 	- $(RM) version.hpp
 	@ if test -n "$(TAG)"; then v=$(TAG); else v=$(LASTTAG).dev$(COUNT); fi; \
 		echo "#define VERSION_STRING \"$$v\"" > version.hpp
