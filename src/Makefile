@@ -2,16 +2,16 @@
 # Directories where binary code will live.  Be sure any environment
 # variables are properly exported.
 #
-BIN = $(WORKING_DIR)/bin
-LIB = $(WORKING_DIR)/lib
+BIN := $(WORKING_DIR)/bin
+LIB := $(WORKING_DIR)/lib
 #
 # Pass these flags to the C compiler
 #
-CPPFLAGS  = -Wall -fPIC -fprofile-arcs -ftest-coverage
+CPPFLAGS := -Wall -fPIC -fprofile-arcs -ftest-coverage
 #
 # Objects to compile
 #
-OBJECTS = most_recent_svn_tag.o get_svn_devstr.o svn_version.o \
+OBJECTS := most_recent_svn_tag.o get_svn_devstr.o svn_version.o \
 	compare_version.o parse_version.o version.o
 #
 # By default, make uses this rule to compile individual objects. Override
@@ -25,14 +25,14 @@ OBJECTS = most_recent_svn_tag.o get_svn_devstr.o svn_version.o \
 #
 # Flags for the link stage.
 #
-LDLIBS = -L $(LIB) -l template
-SOFLAGS = -shared -fPIC
+LDLIBS := -L $(LIB) -l template
+SOFLAGS := -shared -fPIC
 #
 # Set the shared library extension.  This is a simple way to get
 # the appropriate extension on Mac OS.
 #
-SO = so
-UNAME = $(shell uname)
+SO := so
+UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
 	SO = dylib
 	SOFLAGS = -dynamiclib
@@ -75,10 +75,12 @@ clean :
 #
 # Enable 'make version' to update the version string.
 # Do make TAG=0.1.2 version to set the tag explicity.
+# LASTTAG and COUNT are defined inside the recipe so they
+# only get defined when make version is invoked.
 #
-LASTTAG = $(shell git describe --tags --dirty --always | cut -d- -f1)
-COUNT = $(shell git rev-list --count HEAD)
 version :
+	$(eval LASTTAG := $$(shell git describe --tags --dirty --always | cut -d- -f1))
+	$(eval COUNT := $(shell git rev-list --count HEAD))
 	- $(RM) version.hpp
 	@ if test -n "$(TAG)"; then v=$(TAG); else v=$(LASTTAG).dev$(COUNT); fi; \
 		echo "#define VERSION_STRING \"$$v\"" > version.hpp
