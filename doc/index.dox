@@ -1,6 +1,6 @@
 /// \mainpage desitemplate_cpp - Template for DESI C/C++ products.
 /// \author DESI Collaboration <desi-data@desi.lbl.gov>
-/// \version 0.0.4
+/// \version 0.0.5
 ///
 /// \copyright (C) 2015-2016 DESI <desi-data@desi.lbl.gov>
 ///
@@ -9,6 +9,10 @@
 /// This file shows how to create a standalone .dox file.
 ///
 /// \section change-log Change Log
+///
+/// \subsection v005 0.0.5 (2018-04-05)
+///
+///  - Don't collect git metadata in Makefile unless absolutely needed.
 ///
 /// \subsection v004 0.0.4 (2017-10-26)
 ///
