@@ -10,6 +10,10 @@
 ///
 /// \section change-log Change Log
 ///
+/// \subsection v006 0.0.6 (unreleased)
+///
+///  - No changes yet.
+///
 /// \subsection v005 0.0.5 (2018-04-05)
 ///
 ///  - Don't collect git metadata in Makefile unless absolutely needed.
